@@ -30,3 +30,16 @@ fish_add_path $HOME/.deno/bin
 
 # composer
 fish_add_path $HOME/.composer/vendor/bin
+
+# aliases
+alias vim="nvim"
+
+alias g="git"
+alias gs="git status"
+alias gd="git diff"
+alias ga="git add"
+alias gc="git commit"
+alias gp="git push"
+
+alias ls="eza -l"
+alias la="eza -la"
