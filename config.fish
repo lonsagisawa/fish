@@ -5,16 +5,6 @@ end
 
 set fish_greeting
 
-switch (uname)
-    case Linux
-        # Linux specific configuration
-        bass source /etc/profile
-    case Darwin
-        # macOS specific configuration
-        fish_add_path /opt/homebrew/bin
-        fish_add_path /opt/homebrew/sbin
-end
-
 # catppuccin theme
 set --global theme_color_scheme "Catppuccin Mocha"
 
@@ -43,3 +33,14 @@ alias gp="git push"
 
 alias ls="eza -l"
 alias la="eza -la"
+
+switch (uname)
+    case Linux
+        # Linux specific configuration
+        replay source /etc/profile
+    case Darwin
+        # macOS specific configuration
+        fish_add_path /opt/homebrew/bin
+        fish_add_path /opt/homebrew/sbin
+end
+
