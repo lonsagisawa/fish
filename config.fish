@@ -15,9 +15,6 @@ fish_add_path $BUN_INSTALL/bin
 # cargo
 fish_add_path $HOME/.cargo/bin
 
-# Deno
-fish_add_path $HOME/.deno/bin
-
 # composer
 fish_add_path $HOME/.composer/vendor/bin
 
@@ -38,6 +35,10 @@ switch (uname)
     case Linux
         # Linux specific configuration
         replay source /etc/profile
+
+        # Deno
+        set -gx DENO_INSTALL $HOME/.deno
+        fish_add_path $DENO_INSTALL/bin
     case Darwin
         # macOS specific configuration
         fish_add_path /opt/homebrew/bin
