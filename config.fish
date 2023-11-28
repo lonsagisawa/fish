@@ -53,7 +53,9 @@ switch (uname)
         fish_add_path /opt/homebrew/bin
         fish_add_path /opt/homebrew/sbin
 
-        # Rancher Desktop
-        fish_add_path $HOME/.rd/bin
+        # miniforge
+        if test -f /opt/homebrew/Caskroom/miniforge/base/bin/conda
+            eval /opt/homebrew/Caskroom/miniforge/base/bin/conda "shell.fish" "hook" $argv | source
+        end
 end
 
