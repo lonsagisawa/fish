@@ -48,7 +48,12 @@ switch (uname)
         fish_add_path $DENO_INSTALL/bin
     case Darwin
         # macOS specific configuration
+
+        # Homebrew
         fish_add_path /opt/homebrew/bin
         fish_add_path /opt/homebrew/sbin
+
+        # Rancher Desktop
+        fish_add_path $HOME/.rd/bin
 end
 
