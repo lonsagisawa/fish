@@ -18,6 +18,11 @@ fish_add_path $HOME/.cargo/bin
 # composer
 fish_add_path $HOME/.composer/vendor/bin
 
+# asdf
+if test -d ~/.asdf
+    source ~/.asdf/asdf.fish
+end
+
 # fzf
 set -x FZF_DEFAULT_OPTS "\
 --color=bg+:#313244,bg:#1e1e2e,spinner:#f5e0dc,hl:#f38ba8 \
