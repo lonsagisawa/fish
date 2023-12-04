@@ -3,6 +3,27 @@ if not functions --query fisher
     echo "Run fisher update to install plugins"
 end
 
+switch (uname)
+    case Linux
+        # Linux specific configuration
+        replay source /etc/profile
+
+        # Deno
+        set -gx DENO_INSTALL $HOME/.deno
+        fish_add_path --path --append $DENO_INSTALL/bin
+    case Darwin
+        # macOS specific configuration
+
+        # Homebrew
+        fish_add_path --path --append /opt/homebrew/bin
+        fish_add_path --path --append /opt/homebrew/sbin
+
+        # miniforge
+        if test -f /opt/homebrew/Caskroom/miniforge/base/bin/conda
+            eval /opt/homebrew/Caskroom/miniforge/base/bin/conda "shell.fish" "hook" $argv | source
+        end
+end
+
 set fish_greeting
 
 # catppuccin theme
@@ -10,13 +31,13 @@ set --global theme_color_scheme "Catppuccin Mocha"
 
 # bun
 set -gx BUN_INSTALL $HOME/.bun
-fish_add_path $BUN_INSTALL/bin
+fish_add_path --path --append $BUN_INSTALL/bin
 
 # cargo
-fish_add_path $HOME/.cargo/bin
+fish_add_path --path --append $HOME/.cargo/bin
 
 # composer
-fish_add_path $HOME/.composer/vendor/bin
+fish_add_path --path --append $HOME/.composer/vendor/bin
 
 # asdf
 if test -d ~/.asdf
@@ -42,25 +63,4 @@ alias gp="git push"
 
 alias ls="eza -l"
 alias la="eza -la"
-
-switch (uname)
-    case Linux
-        # Linux specific configuration
-        replay source /etc/profile
-
-        # Deno
-        set -gx DENO_INSTALL $HOME/.deno
-        fish_add_path $DENO_INSTALL/bin
-    case Darwin
-        # macOS specific configuration
-
-        # Homebrew
-        fish_add_path /opt/homebrew/bin
-        fish_add_path /opt/homebrew/sbin
-
-        # miniforge
-        if test -f /opt/homebrew/Caskroom/miniforge/base/bin/conda
-            eval /opt/homebrew/Caskroom/miniforge/base/bin/conda "shell.fish" "hook" $argv | source
-        end
-end
 
