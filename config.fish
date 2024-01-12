@@ -39,9 +39,10 @@ fish_add_path --path --append $HOME/.cargo/bin
 # composer
 fish_add_path --path --append $HOME/.composer/vendor/bin
 
-# asdf
-if test -d ~/.asdf
-    source ~/.asdf/asdf.fish
+# mise
+if test -e ~/.local/bin/mise
+    $HOME/.local/bin/mise activate fish | source
+    mise completion fish > $HOME/.config/fish/completions/mise.fish
 end
 
 # fzf
@@ -64,3 +65,4 @@ alias gp="git push"
 alias ls="eza -l"
 alias la="eza -la"
 
+alias asdf="mise"
