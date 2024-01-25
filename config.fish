@@ -54,16 +54,14 @@ set -x FZF_DEFAULT_OPTS "\
 --height 50% --reverse --border"
 
 # aliases
-alias vim="nvim"
-
 alias g="git"
 alias gs="git status"
 alias gd="git diff"
 alias ga="git add"
 alias gc="git commit"
 alias gp="git push"
+alias lg="lazygit"
 
 alias ls="eza -l"
 alias la="eza -la"
 
-alias asdf="mise"
