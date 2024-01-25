@@ -20,7 +20,7 @@ switch (uname)
 
         # miniforge
         if test -f /opt/homebrew/Caskroom/miniforge/base/bin/conda
-            eval /opt/homebrew/Caskroom/miniforge/base/bin/conda "shell.fish" "hook" $argv | source
+            status is-interactive && eval /opt/homebrew/Caskroom/miniforge/base/bin/conda "shell.fish" "hook" $argv | source
         end
 end
 
@@ -43,7 +43,7 @@ fish_add_path --path --append $HOME/.composer/vendor/bin
 if test -e ~/.local/bin/mise
     $HOME/.local/bin/mise activate fish | source
     mise completion fish > $HOME/.config/fish/completions/mise.fish
-    fish_add_path --path --append $HOME/.local/share/mise/shims
+    status is-interactive && fish_add_path --path --append $HOME/.local/share/mise/shims
 end
 
 # fzf
