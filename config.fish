@@ -43,6 +43,7 @@ fish_add_path --path --append $HOME/.composer/vendor/bin
 if test -e ~/.local/bin/mise
     $HOME/.local/bin/mise activate fish | source
     mise completion fish > $HOME/.config/fish/completions/mise.fish
+    fish_add_path --path --append $HOME/.local/share/mise/shims
 end
 
 # fzf
