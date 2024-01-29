@@ -65,3 +65,4 @@ alias lg="lazygit"
 alias ls="eza -l"
 alias la="eza -la"
 
+alias mise_nvim_update="mise use --global neovim@nightly"
