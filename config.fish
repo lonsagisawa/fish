@@ -3,11 +3,12 @@ if not functions --query fisher
     echo "Run fisher update to install plugins"
 end
 
+if status --is-interactive
+    fenv source /etc/profile
+end
+
 switch (uname)
     case Linux
-        # Linux specific configuration
-        replay source /etc/profile
-
         # Deno
         set -gx DENO_INSTALL $HOME/.deno
         fish_add_path --path --append $DENO_INSTALL/bin
